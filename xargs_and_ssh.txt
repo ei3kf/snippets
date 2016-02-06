@@ -1,0 +1,4 @@
+Use xargs and ssh to run commands on many servers, -P value is max number
+of processes to launch, useful when having a high number of servers and you wantto run the command in batches.
+
+##cat file_of_servers | xargs -P5 -I'{}' ssh username@'{}' uptime
