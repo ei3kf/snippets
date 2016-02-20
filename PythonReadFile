@@ -1,0 +1,8 @@
+## python snippet for reading the contents of a file, stripping away "\n"
+
+file = open(filename, 'r')
+
+for line in file.read().splitlines():
+    print(line)
+
+file.close()
