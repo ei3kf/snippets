@@ -1,0 +1,9 @@
+## import re module
+
+##Replace a string?
+y = x.replace("N","Y")
+
+##Search a string?
+re.search("^NO", line)
+
+
