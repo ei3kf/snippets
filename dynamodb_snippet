@@ -1,0 +1,13 @@
+## some dynamodb boto python snippets that if I don't document somewhere I'll forget....
+
+ddb_table_name='something'
+aws_region='a region'
+
+table = boto.dynamodb2.table.Table(ddb_table_name,
+        connection = boto.dynamodb2.connect_to_region(aws_region))
+
+with table.batch_write() as batch:
+    batch.put_item(data={'Key': 'abc-def-ghi', 'Value': '000000000000'})
+    batch.put_item(data={'Key': 'jkl-mno-pqr', 'Value': '000000000000'})
+    
+    
