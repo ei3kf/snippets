@@ -1,0 +1,13 @@
+$ ssh-add -L
+Could not open a connection to your authentication agent.
+
+$ eval `ssh-agent -s`
+Agent pid 2665
+
+$ ssh-add -L
+The agent has no identities.
+
+$ ssh-add my_lovely_horse.pem 
+Identity added: my_lovely_horse.pem (my_lovely_horse.pem)
+
+
