@@ -7,3 +7,17 @@ y = x.replace("N","Y")
 re.search("^NO", line)
 
 
+>>> import re
+>>> pattern = "abc"
+>>> text = "123abc123abc"
+>>> re.search(pattern, text)
+<_sre.SRE_Match object at 0x7faedf69b440>
+>>> re.search(pattern, text).group()
+'abc'
+>>> re.findall(pattern, text)
+['abc', 'abc']
+
+
+
+
+
