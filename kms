@@ -12,3 +12,10 @@ $ aws s3 cp s3://xxxxxxxxxxxx/${file} /tmp > /dev/null 2>&1
 
 ## Decrypt 
 $ aws --region us-east-1 kms decrypt --ciphertext-blob fileb:///tmp/${file} --query Plaintext --output text | base64 –decode 
+
+** To retrieve the S3 objects, the aws cli must be configured for signature_version = s3v4.
+
+$ cat .aws/config
+[default]
+s3 =
+    signature_version = s3v4	
