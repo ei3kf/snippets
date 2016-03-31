@@ -17,7 +17,18 @@ def display_file(file, bucket):
 
 
 ## delete file from s3
-def delete_key(filename, bucket):
+def delete_file(filename, bucket):
     s3 = s3_connect()
     s3.delete_object(Bucket=bucket, Key=filename)
+    
+    
+## upload raw input string to file to s3    
+def upload_key(filename, bucket):
+    public = raw_input("Paste public :> ")
+    s3 = s3_connect()
+    try:
+        s3.put_object(Bucket=bucket, Key=filename, Body=public)
+    except Exception as e:
+        print(e)
+
 
