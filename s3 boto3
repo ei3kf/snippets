@@ -1,0 +1,23 @@
+## s3 connect
+def s3_connect():
+    s3 = boto3.client('s3')
+    return s3
+
+
+## get file from s3 and display to stdout
+def display_file(file, bucket):
+    s3 = s3_connect()
+    try:
+        response = s3.get_object(Bucket=bucket, Key=file)
+        print(response['Body'].read())
+    except Exception as e:
+        print(e)
+        print("Error getting {}").format(file)
+    print("")
+
+
+## delete file from s3
+def delete_key(filename, bucket):
+    s3 = s3_connect()
+    s3.delete_object(Bucket=bucket, Key=filename)
+
