@@ -1,0 +1,14 @@
+# KMS Key ID
+$ keyid=”00000000-1111-2222-3333-444444444444”
+
+# Encrypting a file.
+$ file=(cat somefile.txt)  
+$ aws kms encrypt --key-id ${keyid} --plaintext "${pubkey}" --query CiphertextBlob --output text | base64 --decode > somefile
+$ aws s3 cp somefile s3://xxxxxxxxxxxx/${file} --sse aws:kms --sse-kms-key-id ${keyid}
+
+## Download object to /tmp
+$ file=somefile
+$ aws s3 cp s3://xxxxxxxxxxxx/${file} /tmp > /dev/null 2>&1
+
+## Decrypt 
+$ aws --region us-east-1 kms decrypt --ciphertext-blob fileb:///tmp/${file} --query Plaintext --output text | base64 –decode 
