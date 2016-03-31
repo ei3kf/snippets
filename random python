@@ -1,0 +1,3 @@
+def get_username():
+    username = os.getlogin()
+    return username
