@@ -21,5 +21,17 @@
 
 
 
+def ow_instances(ow, ow_stack):
+    """
+    Return a dictionary of OpsWork Instance IDs and CreatedAt epochtime.
+    """
+    instances = ow.describe_instances(StackId=ow_stack)
+    ow_launch_data = {}
+    for instance in instances['Instances']:
+        created_at = datetime.datetime.strptime(instance['CreatedAt'],'%Y-%m-%dT%H:%M:%S+00:00').strftime('%s')
+        ow_launch_data[instance['InstanceId']] = created_at
+    return ow_launch_data
+    
+
 
 
