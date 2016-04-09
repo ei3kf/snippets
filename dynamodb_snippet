@@ -11,3 +11,36 @@ with table.batch_write() as batch:
     batch.put_item(data={'Key': 'jkl-mno-pqr', 'Value': '000000000000'})
     
     
+
+
+
+## From a dictionary
+import boto.dynamodb2
+import boto.dynamodb2.table
+
+ddb_table_name='something'
+aws_region='a region'
+
+licences = {
+    'a000' : '000',
+    'a001' : '000',
+    'a002' : '000',
+    'a003' : '000',
+    'a004' : '000',
+    'a005' : '000',
+    'a006' : '000',
+    'a007' : '000',
+    'a008' : '000',
+    'a009' : '000',
+    'a010' : '000'
+           }
+
+table = boto.dynamodb2.table.Table(ddb_table_name,
+        connection = boto.dynamodb2.connect_to_region(aws_region))
+
+with table.batch_write() as batch:
+    for key, value in licences.iteritems():
+        batch.put_item(data={'Licence': key, 'Account': value})
+
+
+
