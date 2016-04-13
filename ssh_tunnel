@@ -1,0 +1,2 @@
+
+ssh -i .ssh/<keypair>.pem -L 3389:<private_IP_of_Windows_machine:3389 <some_user>@<public_IP_of_Linux_machine>
