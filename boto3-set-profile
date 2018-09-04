@@ -1,0 +1,2 @@
+session = boto3.session.Session(profile_name="wibbile")
+client = session.client('ec2')
