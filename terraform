@@ -1,0 +1,1 @@
+Terraform state is a snapshot of your infrastructure from when you last ran the terraform apply command.
