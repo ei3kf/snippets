@@ -1,0 +1,19 @@
+# cat horses.yml
+---
+- hosts: horses
+  user: ubuntu
+  become: yes
+  tasks:
+    - name: change hostname
+      hostname:
+        name: "{{ host_name }}"
+
+    - name: add hostname to /etc/hosts
+      lineinfile:
+        path: /etc/hosts
+        line: "{{ private_ip }} {{ host_name }}.ancl.org  {{ host_name }}"
+
+
+
+
+## ansible-playbook horses.yml --extra-vars '{"host_name":"HORSEY", "private_ip": "1.1.1.1"}'
