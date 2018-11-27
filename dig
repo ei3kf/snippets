@@ -1,0 +1,1 @@
+dig +noall +answer www.amazon.com  # just show me the A record.
