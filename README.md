@@ -1,2 +1,2 @@
-Dump of useful commands over time.
-----------------------------------
+Dump of useful and not so useful commands over time.
+----------------------------------------------------
