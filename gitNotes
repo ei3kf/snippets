@@ -1,0 +1,15 @@
+git fetch
+git checkout <your branch>
+git pull
+git log --graph --pretty
+
+git reset --mixed commit
+git add .
+git commit -m "<a message>"
+
+git rebase origin/develop
+git push --force
+
+
+git tag -a blah/1.2.3.4 -m "A Message"
+git push origin blah/1.2.3.4
